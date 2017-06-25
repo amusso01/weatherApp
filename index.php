@@ -1,18 +1,18 @@
 <?php
 include 'config/config.php';
-include $INCLUDE.'\function.php';
+include 'include/function.php';
 include 'lang/en.php';
-include $INCLUDE.'\header.php';
+include 'include/header.php';
 //
-//if(isset($_GET["location"])&&(trim($_GET['location'])!=='')){
-//    $view='search';
-//}else{
-//    $view='home';
-//}
+
+//$databaseNameIdCity=cityIdArray(dataFile('request/city'),'request/city/'); //Array city in json
 
 $ipLocation=getLocationInfoByIp();
-var_dump($ipLocation);
-
-
+$apiCoord='api.openweathermap.org/data/2.5/weather?lat='.$ipLocation['lat'].'&lon='.$ipLocation['lon'].'&units=metric&APPID='.$apiKey;
+$jsonText=cURL($apiCoord);
+$json=json_decode($jsonText);
+echo '<pre>';
+print_r($json);
+echo '</pre>';
 include 'include/footer.php'
 ?>

@@ -32,21 +32,7 @@ function cityIdArray($directoryArray,$pathDir){
     }
     return $cityArray;
 }
-//@$id the name of the view to render
-//@return the url to include in index.php
-//function url($id){
-//    switch ($id) {
-//        case 'home':
-//            return 'views/home.php';
-//            break;
-//        case 'search':
-//            return 'views/search.php';
-//            break;
-//        default:
-//            return 'views/404.php';
-//            break;
-//    }
-//}
+
 //source of this code http://www.apphp.com/index.php?snippet=php-get-country-by-ip
 //return an associative array of the country and the city base on the IP address
 function getLocationInfoByIp(){
@@ -65,6 +51,34 @@ function getLocationInfoByIp(){
     if($ip_data && $ip_data->geoplugin_countryName != null){
         $result['country'] = $ip_data->geoplugin_countryCode;
         $result['city'] = $ip_data->geoplugin_city;
+        $result['lat']=$ip_data->geoplugin_latitude;
+        $result['lon']=$ip_data->geoplugin_longitude;
     }
     return $result;
+}
+
+//This function compare the city searched or initial with the associative array of city and Id from cityIdArray function
+//return associative array id and searched city name or exit and return message
+//@parameter city name to search
+function findCityId($searchedCity,$cityDatabase){
+    $nameIdCityArray=array();
+    foreach ($cityDatabase as $key=>$value){
+        if($searchedCity==$value){
+            $nameIdCityArray[$key]=$value;
+            return $nameIdCityArray;
+        }
+    }
+}
+
+function cURL($url){
+    // Get cURL resource
+    $curl = curl_init();
+// Set some options
+    curl_setopt_array($curl, array(
+        CURLOPT_RETURNTRANSFER => 1,
+        CURLOPT_URL => $url
+));$resp = curl_exec($curl);
+// Close request to clear up resources
+    curl_close($curl);
+    return $resp;
 }

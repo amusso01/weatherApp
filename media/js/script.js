@@ -1,11 +1,13 @@
+function $(selector) {
+    return document.querySelector(selector);
+}
+
 document.addEventListener("DOMContentLoaded", function() {
-   function $('selector') {
-       return document.querySelector('selector');
-   }
+
    var submitButton =$('submit');
    var locationValue=$('location');
 
-   function getInput{
+
        var location = locationValue.value;
 
        var xhr = new XMLHttpRequest();
@@ -22,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
            }
        }
        xhr.send();
-   }
+
 
 
 
