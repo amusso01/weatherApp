@@ -1,23 +1,5 @@
 <?php
-//read the files in the $pathDir and return an array of those in this
-//directory to pass to this function is 'request/city'
-function dataFile($pathDir){
-    $dirFile=array();
-    if (file_exists($pathDir)) {
-        $dir= opendir($pathDir);
-        while (false !== ($file=readdir($dir))){//store the name of the read file in $file and read the content off all the dir
-            if (($file == ".") || ($file == "..")){//skip the . and .. file
-                continue;
-            }else{
-                $dirFile[]=$file;
-            }
-        }
-        closedir($dir);
-        return $dirFile;
-    }else {
-        echo "<p>Error! Directory does not exist</p>";
-    }
-}
+
 //@parameter the array of the json files in the $pathDir
 // @parameter the path of the files
 //@return the associative array of the city id => city name
@@ -82,3 +64,9 @@ function cURL($url){
     curl_close($curl);
     return $resp;
 }
+//function autoloader to load the classes
+function myAutoloader($className){
+    include 'class/'.$className.'.php';
+}
+//Register the function with php
+spl_autoload_register('myAutoloader');

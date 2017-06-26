@@ -1,8 +1,13 @@
 <main>
     <section class="currentweather">
         <div class="weatherInfo">
-            <h3 id="cityName">{{lang['cityName]}}</h3><span><p id="countryCode">{{lang[country]}}</p></span>
+            <h3 id="cityName">{{cityName}}<span id="countryCode"> {{country}} </span><span id="date"> updated at: {{time}}</span></h3>
+            <dl>
+                <dt>Current weather: </dt>
+                <dd>{{mainWeather}}</dd>  <span><img src="{{iconPath}}" alt="weather icon"></span>
+            </dl>
         </div>
+        <div class="map"><img src="{{map}}" alt=""></div>
     </section>
 
 </main>
