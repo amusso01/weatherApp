@@ -15,7 +15,7 @@ $map=cURL($mapUrl);
 //echo '<pre>';
 //var_dump();
 //echo '</pre>';
-
+$geoJson=json_decode($map);
 
 include 'views/home.php';
 

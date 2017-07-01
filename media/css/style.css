@@ -1,3 +1,8 @@
 body{
     background-color: mediumaquamarine;
 }
+
+#weatherIcon{
+    height: 150px;
+    width:200px;
+}

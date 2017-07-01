@@ -2,6 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <style>
+        #map {
+            height: 400px;
+            width: 550px;
+        }
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
