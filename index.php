@@ -11,11 +11,11 @@ $jsonText=cURL($apiCoord);
 $yourCityApi=json_decode($jsonText);
 //get map of your location;
 $mapUrl='http://tile.openweathermap.org/map/precipitation_new/5/'.$ipLocation['lat'].'/.'.$ipLocation['lon'].'.png?appid='.$apiKey;
-$map=cURL($mapUrl);
+//$map=cURL($mapUrl);
 //echo '<pre>';
 //var_dump();
 //echo '</pre>';
-$geoJson=json_decode($map);
+
 
 include 'views/home.php';
 

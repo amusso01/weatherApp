@@ -9,6 +9,6 @@ $template=str_replace('{{country}}',$loadedCity->getCountry(),$template);
 $template=str_replace('{{time}}',$loadedCity->getDate(),$template);
 $template=str_replace('{{mainWeather}}',$loadedCity->getWeather(),$template);
 $template=str_replace('{{iconPath}}',$loadedCity->getIcon(),$template);
-$template=str_replace('{{map}}',$map,$template);
+
 
 echo  $template;
